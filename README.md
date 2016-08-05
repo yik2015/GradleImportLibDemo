@@ -1,18 +1,21 @@
-Step 1. Copy library's directory to our project's root directory.
+- #####Step 1. Copy library's directory to our project's `root` directory.
 
-Step 2. Modify the "settings.gradle" in your project's root directory, like this:
+- #####Step 2. Modify the `"settings.gradle"` in your project's root directory, like this:
+```
+    include ':app',':pulltorefresh'
+```
+- #####Step 3. Modify the `"build.gradle"` under directory `"app"`, add a line in the block `"dependencies"`, like this:
 
-	include ':app',':pulltorefresh'
+```
+    dependencies {
+	    ...
+        compile project(':pulltorefresh')
+    }
+```
 
-Step 3. Modify the "build.gradle" under directory "app", add a line in the block "dependencies", like this:
+- #####Step 4. Create a `"build.gradle"` file under the library's root, its content like this:
 
-dependencies {
-	...
-    compile project(':pulltorefresh')
-}
-
-Step 4. Create a "build.gradle" file under the library's root, its content like this:
-
+```
 apply plugin: 'com.android.library'
 
 android {
@@ -31,8 +34,8 @@ android {
 		}
 	}
 }
+```
 
+Notice the first line `apply plugin: 'com.android.library'` , it's different from the `app's build.gradle`.
 
-Notice the first line apply plugin: 'com.android.library' , it's different from the app's build.gradle.
-
-Step 5. I think it's time to Sync the project. 
+- #####Step 5. I think it's time to Sync the project. 
